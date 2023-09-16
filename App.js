@@ -1,20 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import RootStack from './navigators/rootstack';
+
+import { ThemeContext } from './contexts/ThemeContext';
 
 export default function App() {
+  const [theme, setTheme] = useState({mode: "dark"});
+
+  const updateTheme = (newTheme) => {
+    let mode;
+    if(!newTheme){
+      mode = theme.mode === 'dark' ? 'light' : 'dark';
+      newTheme = {mode};
+    }
+    setTheme(newTheme);
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeContext.Provider value={{theme, updateTheme}}>
+        <RootStack/>
+    </ThemeContext.Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
