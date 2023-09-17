@@ -11,7 +11,8 @@ import First from './components/first';
 import LoginAcc from './components/loginacc';
 import CreateAcc from './components/createacc';
 import Onboarding from './components/onboarding';
-import RootLayout from './components/root';
+import RootStack from './navigators/rootstack';
+import { colors } from './config/theme';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -29,13 +30,13 @@ export default function App() {
 
   return (
     <ThemeContext.Provider value={{theme, updateTheme}}>
-        <NavigationContainer>
-          <Stack.Navigator screenOptions={{headerShown: false}}>
+        <NavigationContainer theme={theme.mode==='dark'?{dark: true, colors: {background:'#181818'}}:{dark: false, colors: {background:'white'}} }>
+          <Stack.Navigator screenOptions={{headerShown: false, contentStyle: {backgroundColor: colors[theme.mode].background}}}>
             <Stack.Screen name="first" component={First}/>
             <Stack.Screen name="onboarding" component={Onboarding}/>
             <Stack.Screen name="loginacc" component={LoginAcc}/>
             <Stack.Screen name="createacc" component={CreateAcc}/>
-            <Stack.Screen name="home" component={RootLayout}/>
+            <Stack.Screen name="user" component={RootStack}/>
           </Stack.Navigator>
         </NavigationContainer>
     </ThemeContext.Provider>

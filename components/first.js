@@ -5,29 +5,31 @@
 import React, { Component } from 'react';
 import { View, ImageBackground, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { ThemeContext } from '../contexts/ThemeContext';
+
 
 class First extends Component{
+    static contextType = ThemeContext;
+
     state = {
         userInfo: {},
-        screenmode: ''
     }
 
     async componentDidMount(){
-        let screenmode = await AsyncStorage.getItem('screenmode');
-        /*await AsyncStorage.multiRemove(['userdata', 'user', 'screenmode']);
-        console.log('removed');*/
+        await AsyncStorage.multiRemove(['userdata', 'user']);
+        console.log('removed');
         let userinfo = await AsyncStorage.getItem('userdata');
         console.log(userinfo);
-        this.setState({userInfo: JSON.parse(userinfo), screenmode:screenmode});
+        this.setState({userInfo: JSON.parse(userinfo)});
     }
 
     render(){
         return(
-            <View style={{...styles.container, backgroundColor:this.state.screenmode==='dark'?'#181818':'white'}}>
+            <View style={{...styles.container, backgroundColor:this.context.theme.mode?'#181818':'white'}}>
                 <ImageBackground style={styles.bg} source={require('./../assets/loadingbg.jpg')} resizeMode="cover">
                     <TouchableOpacity 
                         style={styles.logolink} 
-                        onPress={()=>{ this.state.userInfo ? this.props.navigation.navigate('onboarding'): this.props.navigation.navigate('onboarding') /*navigation.navigate('first')*/; }}
+                        onPress={()=>{ this.state.userInfo ? this.props.navigation.navigate('onboarding'): this.props.navigation.navigate('user') /*navigation.navigate('first')*/; }}
                     >
                         <Image style={styles.logo} source={require('./../assets/logo.png')}></Image>
                     </TouchableOpacity>
