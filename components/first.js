@@ -16,8 +16,8 @@ class First extends Component{
     }
 
     async componentDidMount(){
-        await AsyncStorage.multiRemove(['userdata', 'user']);
-        console.log('removed');
+        /*await AsyncStorage.multiRemove(['userdata', 'user']);
+        console.log('removed');*/
         let userinfo = await AsyncStorage.getItem('userdata');
         console.log(userinfo);
         this.setState({userInfo: JSON.parse(userinfo)});
@@ -29,7 +29,7 @@ class First extends Component{
                 <ImageBackground style={styles.bg} source={require('./../assets/loadingbg.jpg')} resizeMode="cover">
                     <TouchableOpacity 
                         style={styles.logolink} 
-                        onPress={()=>{ this.state.userInfo ? this.props.navigation.navigate('onboarding'): this.props.navigation.navigate('user') /*navigation.navigate('first')*/; }}
+                        onPress={()=>{ this.state.userInfo ? this.props.navigation.navigate('user'): this.props.navigation.navigate('onboarding'); }}
                     >
                         <Image style={styles.logo} source={require('./../assets/logo.png')}></Image>
                     </TouchableOpacity>

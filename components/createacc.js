@@ -46,7 +46,7 @@ class CreateAcc extends Component{
                             this.setState({usernamewarning:'Username already exists', reqloading:false});
                         }else{
                             await AsyncStorage.setItem('userdata', JSON.stringify(response.data));
-                            this.props.navigation.navigate('home');
+                            this.props.navigation.navigate('user');
                             this.setState({reqloading:false});
                         }
                     });

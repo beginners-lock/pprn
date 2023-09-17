@@ -1,15 +1,17 @@
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image } from 'react-native';
 import { colors } from "../config/theme";
 import { useContext } from 'react';
 import { ThemeContext } from "../contexts/ThemeContext";
-import RootLayout from '../components/root';
-import RootLayout2 from '../components/root2';
+import HomeStack from './homestack';
+import MyBets from '../components/mybets';
+import SettingStack from './settingstack';
+//import RootLayout from '../components/root';
+//import RootLayout2 from '../components/root2';
 
 const Tab = createBottomTabNavigator();
 
-const RootStack = () => {
+const UserStack = () => {
     const { theme } = useContext(ThemeContext);
 
     return (
@@ -26,7 +28,7 @@ const RootStack = () => {
                     null
                 ]
             }}>
-                <Tab.Screen name="home" component={RootLayout} options={{
+                <Tab.Screen name="homestack" component={HomeStack} options={{
                     tabBarIcon: ({focused}) => {
                         if(focused){
                             if(theme.mode==='dark'){
@@ -41,7 +43,7 @@ const RootStack = () => {
                 }}>
 
                 </Tab.Screen>
-                <Tab.Screen name="mybets" component={RootLayout2} options={{
+                <Tab.Screen name="mybets" component={MyBets} options={{
                     tabBarIcon: ({focused}) => {
                         if(focused){
                             if(theme.mode==='dark'){
@@ -55,8 +57,22 @@ const RootStack = () => {
                     }
                 }}>
                 </Tab.Screen>
+                <Tab.Screen name="settingstack" component={SettingStack} options={{
+                    tabBarIcon: ({focused}) => {
+                        if(focused){
+                            if(theme.mode==='dark'){
+                                return(<Image style={{width:24, height:24}} source={require('./../assets/settings-dark.png')}/>);
+                            }else{
+                                return(<Image style={{width:24, height:24}} source={require('./../assets/settings1.png')}/>);
+                            }
+                        }else{
+                            return(<Image style={{width:24, height:24}} source={require('./../assets/settings.png')}/>);
+                        }   
+                    }
+                }}>
+                </Tab.Screen>
             </Tab.Navigator>
     );
 }
 
-export default RootStack;
+export default UserStack;

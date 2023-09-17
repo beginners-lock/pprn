@@ -71,7 +71,7 @@ class LoginAcc extends Component{
                     if(response.msg==='200'){
                         await AsyncStorage.setItem('userdata', JSON.stringify(response.data));
                         console.log(response.data);
-                        this.props.navigation.navigate('home');
+                        this.props.navigation.navigate('user');
                         this.setState({reqloading: false});
                     }else{
                         this.setState({usernamewarning:response.msg, passwordwarning:response.msg, reqloading: false});
