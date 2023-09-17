@@ -116,6 +116,7 @@ class MyBets extends Component{
             <ScrollView ref={this.scrollViewRef} style={{backgroundColor:colors[this.context.theme.mode].background, ...styles.containerView}} horizontal showsHorizontalScrollIndicator={false} decelerationRate={0} snapToInterval={Dimensions.get('window').width} snapToAlignment={"center"} scrollEnabled={true}>  
                 <View style={{...styles.mainView}}>
                     <Header
+                        navigation={this.props.navigation}
                         username={this.state.userdata.username?this.state.userdata.username:''}
                         profilepic={/*this.state.userdata.profilepic?this.state.userdata.profilepic:*/'https://ppbe01.onrender.com/public/defaultpic.png'}
                     />

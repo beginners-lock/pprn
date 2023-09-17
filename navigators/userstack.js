@@ -6,6 +6,7 @@ import { ThemeContext } from "../contexts/ThemeContext";
 import HomeStack from './homestack';
 import MyBets from '../components/mybets';
 import SettingStack from './settingstack';
+import WalletStack from './walletstack';
 //import RootLayout from '../components/root';
 //import RootLayout2 from '../components/root2';
 
@@ -53,6 +54,20 @@ const UserStack = () => {
                             }
                         }else{
                             return(<Image style={{width:24, height:24}} source={require('./../assets/game.png')}/>);
+                        }   
+                    }
+                }}>
+                </Tab.Screen>
+                <Tab.Screen name="walletstack" component={WalletStack} options={{
+                    tabBarIcon: ({focused}) => {
+                        if(focused){
+                            if(theme.mode==='dark'){
+                                return(<Image style={{width:24, height:24}} source={require('./../assets/tabcard1-dark.png')}/>);
+                            }else{
+                                return(<Image style={{width:24, height:24}} source={require('./../assets/card1.png')}/>);
+                            }
+                        }else{
+                            return(<Image style={{width:24, height:24}} source={require('./../assets/card.png')}/>);
                         }   
                     }
                 }}>

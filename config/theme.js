@@ -6,7 +6,7 @@ export const colors = {
         text2: '#646060',
         text3: '#4285F4',
         text4: 'black',
-        btn1: 'black',
+        text5: '#646863',
         inputlabel1: '#646060',
         inputborder1: '#928E8E'
     },
@@ -18,7 +18,7 @@ export const colors = {
         text2: '#C8D1DB',
         text3: '#1E9E40',
         text4: '#949494',
-        btn1: '#1E9E40',
+        text5: 'white',
         inputlabel1: 'white',
         inputborder1: 'white'
     },

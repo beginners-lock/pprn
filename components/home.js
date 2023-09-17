@@ -62,6 +62,7 @@ class Home extends Component {
                 <ActivityIndicator style={{display:this.state.loading?'flex':'none', position:'absolute', top: Dimensions.get('window').height*0.45,  left: Dimensions.get('window').width*0.48}}></ActivityIndicator>
                 <View style={{display:!this.state.loading?'flex':'none', ...styles.mainView}}>
                     <Header
+                        navigation={this.props.navigation}
                         username={this.state.userdata.username?this.state.userdata.username:''}
                         profilepic={/*this.state.userdata.profilepic?this.state.userdata.profilepic:*/'https://ppbe01.onrender.com/public/defaultpic.png'}//'http://localhost:3000/public/defaultpic.png'
                     />

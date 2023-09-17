@@ -14,7 +14,7 @@ class Header extends Component{
     render(){
         return(
             <View style={{...styles.viewTop}}>
-                <TouchableOpacity style={{...styles.viewTL}} onPress={()=>{ /*navigation.navigate('/user/home/profile');*/ }}>
+                <TouchableOpacity style={{...styles.viewTL}} onPress={()=>{ this.props.navigation.navigate('profile'); }}>
                     <Image style={{width:40, height:40, borderRadius:'50%', marginRight:10}} source={{uri: this.props.profilepic}}></Image>
                     <Text style={{fontFamily:'Chakra Petch SemiBold', fontSize:18, color:colors[this.context.theme.mode].text1}}>{this.props.username}</Text>
                 </TouchableOpacity>
