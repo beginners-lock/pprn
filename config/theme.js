@@ -2,6 +2,7 @@ export const colors = {
     light: {
         background: 'white',
         btn1: 'black',
+        btn2: '#928E8E',
         text1: 'black',
         text2: '#646060',
         text3: '#4285F4',
@@ -14,6 +15,7 @@ export const colors = {
     dark: {
         background: '#181818',
         btn1: '#1E9E40',
+        btn2: '#1E9E40',
         text1: 'white',
         text2: '#C8D1DB',
         text3: '#1E9E40',

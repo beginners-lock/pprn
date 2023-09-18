@@ -72,13 +72,13 @@ class Home extends Component {
                     />
                     
                     <View style={{width:400, height:80, marginTop:70, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
-                        <TouchableOpacity onPress={()=>{ navigation.navigate('/user/wallet/deposit'); }}>
+                        <TouchableOpacity onPress={()=>{ this.props.navigation.navigate('deposit'); }}>
                         <View style={{width:90, height:80, flexDirection:'column', alignItems:'center', justifyContent:'space-around'}}>
                             <Image style={{width:44, height:44}} source={this.context.theme.mode==='dark'?require('./../assets/deposit-dark.png') : require('./../assets/deposit.png')}></Image>
                             <Text style={{fontFamily:'Chakra Petch Regular', fontSize:12, color:colors[this.context.theme.mode].text2}}>Fund Wallet</Text>
                         </View>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={()=>{ navigation.navigate('/user/wallet/withdraw'); }}>
+                        <TouchableOpacity onPress={()=>{ this.props.navigation.navigate('withdraw'); }}>
                         <View style={{width:90, height:80, flexDirection:'column', alignItems:'center', justifyContent:'space-around'}}>
                             <Image style={{width:44, height:44}} source={this.context.theme.mode==='dark'?require('./../assets/withdraw-dark.png'):require('./../assets/withdraw.png')}></Image>
                             <Text style={{fontFamily:'Chakra Petch Regular', fontSize:12, color:colors[this.context.theme.mode].text2}}>Withdraw Funds</Text>
@@ -90,7 +90,7 @@ class Home extends Component {
                             <Text style={{fontFamily:'Chakra Petch Regular', fontSize:12, color:colors[this.context.theme.mode].text2}}>Invite Friends</Text>
                         </View>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={()=>{ navigation.navigate('/user/wallet/billpayment'); }}>
+                        <TouchableOpacity onPress={()=>{ this.props.navigation.navigate('billpayment'); }}>
                         <View style={{width:90, height:80, flexDirection:'column', alignItems:'center', justifyContent:'space-around'}}>
                             <Image style={{width:44, height:44}} source={this.context.theme.mode==='dark'?require('./../assets/bills-dark.png'):require('./../assets/bills.png')}></Image>
                             <Text style={{fontFamily:'Chakra Petch Regular', fontSize:12, color:colors[this.context.theme.mode].text2}}>Bill Payments</Text>
@@ -99,11 +99,11 @@ class Home extends Component {
                     </View>
                     
                     <View style={{marginTop:24, width:382, height:60, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
-                        <TouchableOpacity style={{width:182, height:60, borderRadius:8, backgroundColor:'black', flexDirection:'row', alignItems:'center', justifyContent:'center', borderWidth:1, borderColor:this.context.theme.mode==='dark'?'white':'rgba(0,0,0,0)'}} onPress={()=>{ navigation.navigate('/user/home/creategame'); }}>
+                        <TouchableOpacity style={{width:182, height:60, borderRadius:8, backgroundColor:'black', flexDirection:'row', alignItems:'center', justifyContent:'center', borderWidth:1, borderColor:this.context.theme.mode==='dark'?'white':'rgba(0,0,0,0)'}} onPress={()=>{ this.props.navigation.navigate('creategame'); }}>
                             <Image style={{width:24, height:24}} source={require('./../assets/creategame.png')}></Image>
                             <Text style={{fontFamily:'Chakra Petch Regular', fontSize:14, color:'white', marginLeft:8}}>Create Game</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{width:182, height:60, borderRadius:8, backgroundColor:'#9BF08B', flexDirection:'row', alignItems:'center', justifyContent:'center'}} onPress={()=>{ navigation.navigate('/user/home/joingame'); }}>
+                        <TouchableOpacity style={{width:182, height:60, borderRadius:8, backgroundColor:'#9BF08B', flexDirection:'row', alignItems:'center', justifyContent:'center'}} onPress={()=>{ this.props.navigation.navigate('joingame'); }}>
                             <Image style={{width:24, height:24}} source={require('./../assets/joingame.png')}></Image>
                             <Text style={{fontFamily:'Chakra Petch Regular', fontSize:14, color:'black', marginLeft:8}}>Join Game</Text>
                         </TouchableOpacity>
